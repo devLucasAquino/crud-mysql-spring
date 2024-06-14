@@ -20,6 +20,7 @@ public class PastelController {
 		@Autowired
 		private PastelRepository repository;
 		
+		@CrossOrigin(origins = "http://localhost:3000")
 		@GetMapping("/inserir/{sabor}")
 		public List<Pastel> InserirPastel(@PathVariable String sabor) {
 		repository.insere(sabor);
@@ -33,6 +34,7 @@ public class PastelController {
 			return repository.lista();
 		}
 		
+		@CrossOrigin(origins = "http://localhost:3000")
 		@GetMapping("/delete/{id}")
 		public List<Pastel> deletePastel(@PathVariable Integer id) {
 			repository.delete(id);
@@ -45,7 +47,7 @@ public class PastelController {
 			return repository.buscaPorId(id);
 			
 		}
-		
+		@CrossOrigin(origins = "http://localhost:3000")
 		@GetMapping("/update/{id}/{sabor}")
 		public List<Pastel> updatePastel(@PathVariable String sabor, @PathVariable Integer id){
 			repository.altera(id, sabor);
